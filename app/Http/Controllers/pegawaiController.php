@@ -58,7 +58,7 @@ class pegawaiController extends Controller
         //validate form
         $request->validate([
             'nama_pegawai'      => 'required',
-            'alamat'            => 'required','numeric',
+            'alamat'            => 'required',
             'jabatan'           => 'required',
             'status'            => 'required',
         ]);
@@ -66,7 +66,7 @@ class pegawaiController extends Controller
         $datapegawai = pegawai::findOrFail($id);
         $datapegawai->update([
              'nama_pegawai'     => $request->nama_pegawai,
-             'alamat'           => $request->nama_alamat,
+             'alamat'           => $request->alamat,
              'jabatan'          => $request->jabatan,
              'status'           => $request->status,
             ]);

@@ -21,7 +21,7 @@
                         <form action="{{ route('pegawai.update', $datapegawai->id) }}" method="POST">
                           @csrf
                           @method('PUT')
-                            <div class="form-group">
+                                <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Pegawai</label>
                                 <input type="text" name="nama_pegawai" class="form-control" placeholder="Enter nama pegawai" value="{{ old('nama_pegawai', $datapegawai->nama_pegawai) }}">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -32,6 +32,50 @@
                                 @enderror
                               </div>
                               <br/>
+                              
+                              <div class="form-group">
+                              <label for="exampleInputEmail1">Jabatan</label>
+                                    <select name="jabatan" id="jabatan" class="form-control">
+                                        <option value="">-- Pilih Jabatan --</option>
+                                        <option value="teknisi" {{ $datapegawai->jabatan == 'teknisi' ? 'selected' : '' }}>Tekniksi</option>
+                                        <option value="admin" {{ $datapegawai->jabatan == 'admin' ? 'selected' : '' }}>Admin</option>
+                                        <option value="spv" {{ $datapegawai->jabatan == 'spv' ? 'selected' : '' }}>Spv</option>
+                                    </select>
+                                    <!-- <input type="text" name="jabatan" class="form-control" placeholder="masukkan jabatan anda">
+                                    @error('jabatan')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror -->
+                                </div>
+                                <br/>
+
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">Alamat</label>
+                                        <input type="text" name="alamat" value="{{ $datapegawai->alamat }}" class="form-control" placeholder="masukkan alamat anda">
+                                        @error('alamat')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                </div>
+                                <br/>
+
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">Status</label>
+                                        <select name="status" id="status" class="status form-control">
+                                            <option value="">-- Pilih Status --</option>
+                                            <option value="aktif" {{ $datapegawai->status == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                                            <option value="tidak_aktif" {{ $datapegawai->jabatan == 'tidak_aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+                                        </select>
+                                        <!-- <input type="text" name="status" class="form-control" placeholder="klik status anda">
+                                        @error('status')
+                                        <div class="alert alert-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror -->
+                                </div>
+                                <br>
                               <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                               </div>
