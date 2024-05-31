@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Customers</h3>
+                    <h3 class="text-center my-4">Edit Data Customers</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
@@ -22,7 +22,7 @@
                           @csrf
                           @method('PUT')
                           <div class="form-group mb-3">
-                                <label class="font-weight-bold">Nomor Polisi</label>
+                                <label class="font-weight-bold">Nomor Polisi Kendaraan</label>
                                 <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol', $datacustomers->no_pol) }}" placeholder="Cth: KB1234ABC, KB1234AB">
                             
                                 <!-- error message untuk no_pol -->
@@ -57,6 +57,17 @@
                                 @enderror
                             </div>
                            <br/>
+
+                           <div class="form-group">
+                                <label for="exampleInputEmail1">Nomor HP</label>
+                                <input type="number" name="no_hp" class="form-control" placeholder="Masukan Nomor Whatsapp" value="{{ old('no_hp', $datacustomers->no_hp) }}">
+                                @error('no_hp')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                              </div>
+                              <br/>
 
                            <div class="form-group mb-3">
                                 <label class="font-weight-bold">Jenis jenis_kelamin</label>

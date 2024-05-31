@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('no_pol')->unique();
             $table->string('nama_customer');
             $table->text('alamat');
+            $table->string('no_hp');
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->timestamps();
         });

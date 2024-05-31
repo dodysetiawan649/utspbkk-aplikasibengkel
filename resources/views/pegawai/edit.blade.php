@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Pegawai</h3>
+                    <h3 class="text-center my-4">Edit Data Pegawai</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Pegawai</label>
                                 <input type="text" name="nama_pegawai" class="form-control" placeholder="Enter nama pegawai" value="{{ old('nama_pegawai', $datapegawai->nama_pegawai) }}">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
                                 @error('nama_pegawai')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

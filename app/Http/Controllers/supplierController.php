@@ -63,8 +63,8 @@ class supplierController extends Controller
         $datasupplier = supplier::findOrFail($id);
         $datasupplier->update([
              'nama_supplier'  => $request->nama_supplier,
-             'alamat'  => $request->alamat,
-             'no_hp'  => $request->no_hp
+             'alamat'         => $request->alamat,
+             'no_hp'          => $request->no_hp
             ]);
 
         return redirect()->route('supplier.index')->with(['success' => 'Data Berhasil Diubah!']);

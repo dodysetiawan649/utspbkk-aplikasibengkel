@@ -12,8 +12,9 @@ class customers extends Model
 
     protected $fillable = [
         'no_pol',
-        'nama_customer',
+        'nama_customers',
         'alamat',
+        'no_hp',
         'jenis_kelamin',
     ];
 }

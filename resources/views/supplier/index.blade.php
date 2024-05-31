@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Supplier</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body style="background: white">
+@extends('tema')
+@section('content')
 
     <div class="container mt-5">
         <div class="row">
@@ -21,7 +13,7 @@
                         <a href="{{ route('supplier.create') }}" class="btn btn-md btn-info mb-3">TAMBAH</a>
                         <table class="table table-bordered">
                             <thead>
-                                <tr>
+                                <tr> 
                                     <th scope="col">No</th>
                                     <th scope="col">Nama supplier</th>
                                     <th scope="col">Alamat</th>
@@ -61,5 +53,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

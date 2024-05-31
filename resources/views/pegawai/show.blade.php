@@ -19,10 +19,10 @@
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
                         <div class="card-body">
-                            <h3>{{ $pegawai->nama_pegawai }}</h3>
-                            <h3>{{ $pegawai->alamat }}</h3>
-                            <h3>{{ $pegawai->jabatan }}</h3>
-                            <h3>{{ $pegawai->status }}</h3>
+                            Nama : <h5>{{ $pegawai->nama_pegawai }}</h5><br>
+                            Alamat : <h5>{{ $pegawai->alamat }}</h5><br>
+                            Jabatan : <h5>{{ $pegawai->jabatan }}</h5><br>
+                            Status : <h5>{{ $pegawai->status }}</h5><br>
                          </div>
                     </div>
                 </div>

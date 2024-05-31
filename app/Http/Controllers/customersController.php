@@ -28,13 +28,15 @@ class customersController extends Controller
             'no_pol'              => 'required',
             'nama_customers'      => 'required',
             'alamat'              => 'required',
+            'no_hp'               => 'numeric',
             'jenis_kelamin'       => 'required'
          ]);
 
         customers::create([
             'no_pol'                => $request->no_pol,
-            'nama_customer'        => $request->nama_customers,
+            'nama_customer'         => $request->nama_customers,
             'alamat'                => $request->alamat,
+            'no_hp'                 => $request->no_hp,
             'jenis_kelamin'         => $request->jenis_kelamin
         ]);
         //redirect to index
@@ -62,6 +64,7 @@ class customersController extends Controller
         'no_pol'              => 'required',
         'nama_customers'      => 'required',
         'alamat'              => 'required',
+        'no_hp'               => 'numeric',
         'jenis_kelamin'       => 'required'
     
         ]);
@@ -69,8 +72,9 @@ class customersController extends Controller
         $datacustomers = customers::findOrFail($id);
         $datacustomers->update([
             'no_pol'                => $request->no_pol,
-            'nama_customer'        => $request->nama_customers,
+            'nama_customer'         => $request->nama_customers,
             'alamat'                => $request->alamat,
+            'no_hp'                 => $request->no_hp,
             'jenis_kelamin'         => $request->jenis_kelamin
             ]);
 

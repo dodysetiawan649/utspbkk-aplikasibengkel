@@ -14,6 +14,7 @@
             <div class="col-md-12">
                 <div>
                     <h3 class="text-center my-4">Data Customers</h3>
+                    <small id="emailHelp" class="form-text text-muted">Kami Tidak Akan Membagikan Data Anda Kepada Orang lain.</small>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
@@ -23,7 +24,7 @@
                           @csrf
                           <div class="form-group mb-3">
                                 <label class="font-weight-bold">Nomor Polisi</label>
-                                <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol') }}" placeholder="Cth: KB1234ABC, KB1234AB">
+                                <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol') }}" placeholder="Contoh: KB1234AB / KB1234ABC">
                             
                                 <!-- error message untuk no_pol -->
                                 @error('no_pol')
@@ -59,6 +60,17 @@
                                 @enderror
                             </div>
                            <br/>
+
+                           <div class="form-group">
+                                <label for="exampleInputEmail1">Nomor HP</label>
+                                <input type="number" name="no_hp" class="form-control" placeholder="masukkan nomor HP Customer">
+                                @error('no_hp')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                           </div>
+                              <br/>
 
                            <div class="form-group mb-3">
                                 <label class="font-weight-bold">Jenis jenis_kelamin</label>

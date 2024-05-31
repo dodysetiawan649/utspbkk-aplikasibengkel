@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Data Supplier</h3>
+                    <h3 class="text-center my-4">Edit Data Supplier</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
@@ -43,7 +43,7 @@
                               <br/>
                               <div class="form-group">
                                 <label for="exampleInputEmail1">Nomor HP</label>
-                                <input type="number" name="no_hp" class="form-control" placeholder="Enter nama supplier" value="{{ old('no_hp', $datasupplier->no_hp) }}">
+                                <input type="number" name="no_hp" class="form-control" placeholder="Masukan Nomor Whatsapp" value="{{ old('no_hp', $datasupplier->no_hp) }}">
                                 @error('no_hp')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

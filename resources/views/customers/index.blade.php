@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Customers</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body style="background: white">
+@extends('tema')
+@section('content')
 
     <div class="container mt-5">
         <div class="row">
@@ -26,7 +18,8 @@
                                     <th scope="col">Nomor Polisi</th>
                                     <th scope="col">Nama Customers</th>
                                     <th scope="col">Alamat</th>
-                                    <th scope="col">Jenis_kelamin</th>
+                                    <th scope="col">Nomor HP</th>
+                                    <th scope="col">Jenis kelamin</th>
                                     <th scope="col" style="width: 20%">ACTIONS</th>
                                 </tr>
                             </thead>
@@ -39,6 +32,7 @@
                                         <td>{{ $customers->no_pol }}</td>
                                         <td>{{ $customers->nama_customer }}</td>
                                         <td>{{ $customers->alamat }}</td>
+                                        <td>{{ $customers->no_hp }}</td>
                                         <td>{{ $customers->jenis_kelamin }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('customers.destroy', $customers->id) }}" method="POST">
@@ -63,5 +57,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection
