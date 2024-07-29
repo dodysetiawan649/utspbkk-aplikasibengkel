@@ -17,4 +17,9 @@ class customers extends Model
         'no_hp',
         'jenis_kelamin',
     ];
+
+    public function keluhan()
+    {
+        return $this->hasOne(keluahan::class, 'customer_id');
+    }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kendaraans', function (Blueprint $table) {
-            $table->string('no_pol')->primary();
+            $table->string('no_pol');
             $table->string('no_mesin');
             $table->enum('merek', ['honda', 'yamaha', 'suzuki', 'kawasaki', 'lain']);
             $table->enum('warna', ['Putih', 'Hitam', 'Hijau', 'Biru', 'Merah', 'Lain']);

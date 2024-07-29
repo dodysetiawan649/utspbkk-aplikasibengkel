@@ -8,13 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class keluhan extends Model
 {
     use HasFactory;
-    protected $table = 'keluhan';
+    protected $table = 'keluhans';
 
     protected $fillable = [
         'nama_keluhan',
         'ongkos',
         'no_pol',
-        'customers_id',
-        'id_pegawai',
+        'customer_id',
+        'pegawai_id',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(customers::class, 'customer_id');
+    }
+
+    public function pegawai()
+    {
+        return $this->belongsTo(pegawai::class, 'pegawai_id');
+    }
 }

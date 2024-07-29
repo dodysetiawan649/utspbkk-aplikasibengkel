@@ -36,7 +36,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/supplier">Suppliers</a>
                         </li>
-                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/kendaraan">Kendaraan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/keluhan">Keluhan</a>
+                        </li>
                     </ul>
                 </div>
             </div>

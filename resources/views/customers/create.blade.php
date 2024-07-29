@@ -23,7 +23,7 @@
 
                           @csrf
                           <div class="form-group mb-3">
-                                <label class="font-weight-bold">Nomor Polisi</label>
+                                <label class="font-weight-bold">Nomor Polisi Kendaraan</label>
                                 <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol') }}" placeholder="Contoh: KB1234AB / KB1234ABC">
                             
                                 <!-- error message untuk no_pol -->
@@ -36,7 +36,7 @@
                            <br/>
 
                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">Nama Customers</label>
+                                <label class="font-weight-bold">Nama Customer</label>
                                 <input type="text" class="form-control @error('nama_customers') is-invalid @enderror" name="nama_customers" value="{{ old('nama_customers') }}" placeholder="Masukkan Nama Anda">
                             
                                 <!-- error message untuk nama_customers -->
@@ -63,7 +63,7 @@
 
                            <div class="form-group">
                                 <label for="exampleInputEmail1">Nomor HP</label>
-                                <input type="number" name="no_hp" class="form-control" placeholder="masukkan nomor HP Customer">
+                                <input type="number" name="no_hp" class="form-control" placeholder="Masukkan Nomor Headphone Anda">
                                 @error('no_hp')
                                 <div class="alert alert-danger mt-2">
                                     {{ $message }}

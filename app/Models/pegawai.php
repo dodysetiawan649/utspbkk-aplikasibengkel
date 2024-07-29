@@ -16,4 +16,9 @@ class pegawai extends Model
         'jabatan', 
         'status',
     ];
+
+    public function keluhan()
+    {
+        return $this->hasOne(keluahan::class, 'customer_id');
+    }
 }
