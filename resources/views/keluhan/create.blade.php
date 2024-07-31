@@ -23,8 +23,17 @@
 
                           @csrf
                           <div class="form-group mb-3">
-                                <label class="font-weight-bold">Nama Keluhan</label>
-                                <input type="text" class="form-control @error('nama_keluhan') is-invalid @enderror" name="nama_keluhan" value="{{ old('nama_keluhan') }}" placeholder="Masukan Keluhan">
+                                <!-- <label class="font-weight-bold">Nama Keluhan</label>
+                                <input type="text" class="form-control @error('nama_keluhan') is-invalid @enderror" name="nama_keluhan" value="{{ old('nama_keluhan') }}" placeholder="Masukan Keluhan"> -->
+                                <label for="">Keluhan</label>
+                                <select name="keluhan" id="keluhan" class="form-control">
+                                    <option value="">-- Pilih Keluhan --</option>
+                                    @forelse($barang as $b)
+                                        <option value="{{ $b->id.'_'.$b->nama_barang }}">{{ $b->nama_barang }}</option>
+                                    @empty 
+                                    <option value="">Barang Belum Di Input</option>
+                                    @endforelse
+                                </select>
                             
                                 <!-- error message untuk nama_keluhan -->
                                 @error('nama_keluhan')
@@ -33,11 +42,18 @@
                                     </div>
                                 @enderror
                            </div>
-                           <br/>
 
                            <div class="form-group mb-3">
                                 <label class="font-weight-bold">Nomor Polisi</label>
-                                <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol') }}" placeholder="Masukan Nomor Polisi">
+                                <!-- <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol') }}" placeholder="Masukan Nomor Polisi"> -->
+                                <select name="no_pol" id="no_pol" class="form-control">
+                                    <option value="">-- Pilih Nomor Polisi --</option>
+                                    @forelse($no_pol as $np)
+                                        <option value="{{ $np->no_pol }}">{{ $np->no_pol }}</option>
+                                    @empty 
+                                    <option value="">Barang Belum Di Input</option>
+                                    @endforelse
+                                </select>
                             
                                 <!-- error message untuk no_pol -->
                                 @error('no_pol')
@@ -46,13 +62,12 @@
                                     </div>
                                 @enderror
                             </div>
-                           <br/>
 
                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">Customer</label>
+                                <label class="font-weight-bold">Nama Customer</label>
                                 <!-- <input type="text" class="form-control @error('customer') is-invalid @enderror" name="customer" value="{{ old('customer') }}" placeholder="Pilih Jenis Kelamin"> -->
                                 <select name="customer_id" id="customer" class="form-control">
-                                    <option value="">-- Pilih Customer --</option>
+                                    <option value="">-- Pilih Nama Customer --</option>
                                     @forelse($customer as $ct)
                                         <option value="{{ $ct->id }}">{{ $ct->nama_customer }}</option>
                                     @empty 
@@ -86,20 +101,6 @@
                                 @enderror -->
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">Ongkos</label>
-                                <input type="number" class="form-control @error('ongkos') is-invalid @enderror" name="ongkos" value="{{ old('ongkos') }}" placeholder="Masukan Ongkos">
-                            
-                                <!-- error message untuk ongkos -->
-                                @error('ongkos')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                           <br/>
-
-                              <br/>
                               <br/>
                               <div class="form-group">
                               <button type="submit" class="btn btn-md btn-primary me-3">SIMPAN</button>

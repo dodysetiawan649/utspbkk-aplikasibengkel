@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\pegawai;
 use App\Models\customers;
+use App\Models\barang;
 
 class keluhanController extends Controller
 {
@@ -21,22 +22,26 @@ class keluhanController extends Controller
     {
         $pegawai = pegawai::all();
         $customer = customers::all();
-        return view('keluhan.create', compact('pegawai', 'customer'));
+        $barang = barang::all();
+        $no_pol = customers::select('no_pol')->get();
+        return view('keluhan.create', compact('pegawai', 'customer', 'barang', 'no_pol'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         //validate form
         $request->validate([
-            'nama_keluhan'  => 'required',
-            'ongkos'        => 'required',
+            'keluhan'  => 'required',
             'no_pol'       => 'required',
             'customer_id'        => 'required',
             'id_pegawai'        => 'required',
         ]);
+        $nama_barang = explode('_', $request->keluhan);
+        $barang = barang::find($nama_barang[0]);
         keluhan::create([
-            'nama_keluhan'  => $request->nama_keluhan,
-            'ongkos'        => $request->ongkos,
+            'barang_id' => $nama_barang[0],
+            'nama_keluhan'  => $nama_barang[1],
+            'ongkos'        => $barang->harga,
             'no_pol'       => $request->no_pol,
             'customer_id'        => $request->customer_id,
             'pegawai_id'        => $request->id_pegawai,
@@ -50,7 +55,9 @@ class keluhanController extends Controller
         $datakeluhan = keluhan::findOrFail($id);
         $pegawai = pegawai::all();
         $customer = customers::all();
-        return view('keluhan.edit', compact('datakeluhan', 'pegawai', 'customer'));
+        $barang = barang::all();
+        $no_pol = customers::select('no_pol')->get();
+        return view('keluhan.edit', compact('datakeluhan', 'pegawai', 'customer', 'barang', 'no_pol'));
     }
 
     public function show(string $id): View
@@ -63,17 +70,19 @@ class keluhanController extends Controller
     {
         //validate form
         $request->validate([
-            'nama_keluhan'  => 'required',
-            'ongkos'        => 'required',
+            'keluhan'  => 'required',
             'no_pol'       => 'required',
             'customer_id'        => 'required',
             'id_pegawai'        => 'required',
         ]);
 
+        $nama_barang = explode('_', $request->keluhan);
         $datakeluhan = keluhan::findOrFail($id);
+        $barang = barang::find($nama_barang[0]);
         $datakeluhan->update([
-            'nama_keluhan'  => $request->nama_keluhan,
-            'ongkos'        => $request->ongkos,
+            'barang_id' => $nama_barang[0],
+            'nama_keluhan'  => $nama_barang[1],
+            'ongkos'        => $barang->harga,
             'no_pol'       => $request->no_pol,
             'customer_id'        => $request->customer_id,
             'id_pegawai'        => $request->id_pegawai,

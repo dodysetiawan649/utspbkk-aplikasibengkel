@@ -24,20 +24,27 @@
                           <input type="hidden" name="id" value="{{ $datakeluhan->id }}">
                           <div class="form-group">
                                 <label class="font-weight-bold">Nama Keluhan</label>
-                                <input type="text" class="form-control @error('nama_keluhan') is-invalid @enderror" name="nama_keluhan" value="{{ old('nama_keluhan', $datakeluhan->nama_keluhan) }}" placeholder="Masukan Keluhan">
-                            
-                                <!-- error message untuk nama_keluhan -->
-                                @error('nama_keluhan')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <select name="keluhan" id="keluhan" class="form-control">
+                                    <option value="">-- Pilih Keluhan --</option>
+                                    @forelse($barang as $b)
+                                        <option value="{{ $b->id.'_'.$b->nama_barang }}" {{ $datakeluhan->barang_id == $b->id ? 'selected' : '' }}>{{ $b->nama_barang }}</option>
+                                    @empty 
+                                    <option value="">Barang Belum Di Input</option>
+                                    @endforelse
+                                </select>
                            </div>
                            <br/>
 
                            <div class="form-group">
                                 <label class="font-weight-bold">Nomor Polisi</label>
-                                <input type="text" class="form-control @error('no_pol') is-invalid @enderror" name="no_pol" value="{{ old('no_pol', $datakeluhan->no_pol) }}" placeholder="Masukan Nomor Polisi">
+                                <select name="no_pol" id="no_pol" class="form-control">
+                                    <option value="">-- Pilih Nomor Polisi --</option>
+                                    @forelse($no_pol as $np)
+                                        <option value="{{ $np->no_pol }}" {{ $datakeluhan->no_pol == $np->no_pol ? 'selected' : '' }}>{{ $np->no_pol }}</option>
+                                    @empty 
+                                    <option value="">No Polisi Belum Di Input</option>
+                                    @endforelse
+                                </select>
                             
                                 <!-- error message untuk no_pol -->
                                 @error('no_pol')
@@ -84,18 +91,6 @@
                                         {{ $message }}
                                     </div>
                                 @enderror -->
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label class="font-weight-bold">Ongkos</label>
-                                <input type="number" class="form-control @error('ongkos') is-invalid @enderror" name="ongkos" value="{{ old('ongkos', $datakeluhan->ongkos) }}" placeholder="Masukan Ongkos">
-                            
-                                <!-- error message untuk ongkos -->
-                                @error('ongkos')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
 
                               <br/>

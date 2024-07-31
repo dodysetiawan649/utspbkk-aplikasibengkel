@@ -15,4 +15,14 @@ class supplier extends Model
         'alamat',
         'no_hp',
     ];
+
+    public function single_supplier()
+    {
+        return $this->hasOne(barang::class, 'supplier_id');
+    }
+
+    public function all_supplier()
+    {
+        return $this->hasMany(barang::class, 'supplier_id');
+    }
 }

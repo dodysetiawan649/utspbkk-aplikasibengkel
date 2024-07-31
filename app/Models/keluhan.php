@@ -16,6 +16,7 @@ class keluhan extends Model
         'no_pol',
         'customer_id',
         'pegawai_id',
+        'barang_id'
     ];
 
     public function customer()

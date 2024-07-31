@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class barang extends Model
 {
     use HasFactory;
-    protected $table = 'barang';
+    protected $table = 'barangs';
 
     protected $fillable = [
+        'supplier_id',
         'nama_barang',
         'merek',
         'harga',
@@ -18,4 +19,8 @@ class barang extends Model
         'satuan',
     ];
 
+    public function supplier()
+    {
+        return $this->belongsTo(supplier::class, 'supplier_id');
+    }
 }

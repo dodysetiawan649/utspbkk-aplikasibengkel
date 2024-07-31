@@ -31,8 +31,8 @@ class customersController extends Controller
             'no_hp'               => 'numeric',
             'jenis_kelamin'       => 'required'
          ]);
-
-        customers::create([
+         
+        customers::insert([
             'no_pol'                => $request->no_pol,
             'nama_customer'         => $request->nama_customers,
             'alamat'                => $request->alamat,
