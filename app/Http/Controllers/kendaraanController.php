@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 use App\Models\kendaraan;
 use App\Models\keluhan;
+use App\Models\customers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
@@ -18,7 +19,7 @@ class kendaraanController extends Controller
 
     public function create(): View
     {
-        $keluhan = keluhan::select('no_pol')->get();
+        $keluhan = customers::select('no_pol')->get();
         return view('kendaraan.create', compact('keluhan'));
     }
 
